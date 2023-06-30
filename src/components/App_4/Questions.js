@@ -36,6 +36,41 @@ export default function Questions() {
             answer: ['Right answer', 'Answer 2', "Answer 3", "Answer 4"],
             correctAnswer: 1,
             points: 1
+        },
+        {
+            id: 6,
+            question: 'Sixth question',
+            answer: ['Answer 1', 'Right answer', "Answer 3", "Answer 4"],
+            correctAnswer: 2,
+            points: 1
+        },
+        {
+            id: 7,
+            question: 'Seventh question',
+            answer: ['Answer 1', 'Answer 2', "Right answer", "Answer 4"],
+            correctAnswer: 3,
+            points: 1
+        },
+        {
+            id: 8,
+            question: 'Eighth question',
+            answer: ['Answer 1', 'Answer 2', "Answer 3", "Right answer"],
+            correctAnswer: 4,
+            points: 1
+        },
+        {
+            id: 9,
+            question: 'Ninth question',
+            answer: ['Right answer', 'Answer 2', "Answer 3", "Answer 4"],
+            correctAnswer: 1,
+            points: 1
+        },
+        {
+            id: 10,
+            question: 'Tenth question',
+            answer: ['Right answer', 'Answer 2', "Answer 3", "Answer 4"],
+            correctAnswer: 1,
+            points: 1
         }
     ];
 
@@ -43,14 +78,14 @@ export default function Questions() {
     const [points, setPoints] = useState(0);
 
     // Hide/show questions
-    const [showQuestions, setShowQuestions] = useState("hidden");
-    const [showStartButton, setShowStartButton] = useState("visible");
-    const [showResults, setShowResults] = useState("hidden");
+    const [showStartButton, setShowStartButton] = useState(true);
+    const [showQuestions, setShowQuestions] = useState(false);
+    const [showResults, setShowResults] = useState(false);
 
     function showQuestionsHandler() {
-        setShowQuestions("visible");
-        setShowStartButton("hidden");
-        setShowResults('hidden');
+        setShowQuestions(true);
+        setShowResults(true);
+        setShowStartButton(false);
         setPoints(0);
         setStep(1);
     }
@@ -73,9 +108,9 @@ export default function Questions() {
             setStep(step + 1);
         } else {
             // Коли завершено
-            setShowQuestions("hidden");
-            setShowResults('visible');
-            setShowStartButton("visible");
+            setShowQuestions(false);
+            setShowResults(true);
+            setShowStartButton(true);
         }
     }
 
@@ -84,17 +119,19 @@ export default function Questions() {
             <div className="Tips">
 
                 <button className='button_start' onClick={showQuestionsHandler}
-                        style={{visibility: showStartButton}}
+                        style={{visibility: showStartButton ? 'visible' : 'hidden'}}
                 >Start
                 </button>
 
                 <button className='Stats margin_25'
-                        style={{visibility: showResults}}
-                >Ви набрали {points} очок
+                        style={{visibility: showResults ? 'visible' : 'hidden'}}
+                >Набрано {points} очок із {questions.length} ({points / questions.length * 100}%)
                 </button>
 
                 {/* Buttons with numbers */}
-                <div style={{visibility: showQuestions}}>
+                <div
+                    style={{visibility: showQuestions ? 'visible' : 'hidden'}}
+                >
 
                     <div className="numbers numbers_question">
                         {questions.map((question, index) => (
@@ -114,9 +151,6 @@ export default function Questions() {
                             </button>
                         </div>
                     ))}
-
-                    {/* Points */}
-                    <p className='answears'>points: {points}</p>
 
                 </div>
             </div>
