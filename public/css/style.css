@@ -1,0 +1,334 @@
+/* Загальні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Розділювач */
+.Delimiter {
+    margin: 100px auto;
+    font-size: 30px;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+
+/* 1. Pizza App */
+
+
+/* Pizza весь блок */
+.Pizza_app {
+    background: #fff9ee;
+}
+
+/* Pizza назва */
+.Fast_React_Pizza {
+    color: red;
+    padding: 25px;
+    font-size: 40px;
+}
+
+/* Our menu текст */
+.menu-title {
+    width: 20%;
+    margin: 25px auto;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+/* Картинки піци */
+.Pizza_images {
+    width: 400px;
+    height: 300px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+/* Обгортка піци */
+.Pizza_wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 50px 50px;
+}
+
+/* Кожен блок Pizza */
+.Pizza_item {
+    background: #fff7e3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: rgba(79, 79, 79, 0.54) 1px solid;
+    border-radius: 50px;
+    width: 500px;
+    min-height: 600px;
+    margin: 3% 3%;
+}
+
+/* Блок піци наведення */
+.Pizza_item:hover {
+    transition: all .15s ease-in 0s;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    background: #fff8e9;
+    scale: 105%;
+}
+
+/* Блок піци наведення без наведення */
+.Pizza_item:not(hover) {
+    transition: all .15s ease-in 0s;
+}
+
+/* Назва піци */
+.Pizza_name {
+    font-size: 46px;
+    margin-top: 25px;
+}
+
+/* Інгредієнти піци */
+.Pizza_ingredients {
+    font-size: 24px;
+    margin-top: 25px;
+}
+
+/* Ціна піци */
+.Pizza_price {
+    font-size: 30px;
+    margin-top: 25px;
+}
+
+/* Кнопка Order */
+.Buy_Pizza {
+    font-size: 28px;
+    background: #ffc479;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 25px 0;
+}
+
+/* Кнопка Buy наведення */
+.Buy_Pizza:hover {
+    cursor: pointer;
+}
+
+/* Футер */
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 24px;
+    background: #fff1c8;
+    padding: 20px 0;
+}
+
+
+/* 2. Tips App */
+
+
+/* 2 додаток поради */
+.Tips {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    width: 40%;
+    min-height: 500px;
+    margin: 100px auto;
+    box-shadow: #2f2f2f 0 0 10px;
+}
+
+/* Всі числа */
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Одне число */
+.number {
+    border-radius: 50%;
+    padding: 5px;
+    width: 30px;
+    font-size: 26px;
+    margin: 0 25px;
+    background: #f1f1f1;
+}
+
+/* Одне число наведення */
+.number:hover {
+    cursor: pointer;
+    scale: 120%;
+}
+
+/* Активне число */
+.number_active {
+    background: #000000;
+    color: white;
+}
+
+/* Підсказки */
+.Tips_text {
+    font-size: 30px;
+}
+
+/* Дві кнопки роздільно стилі */
+.Next_button, .Previous_button {
+    background: #f1f1f1;
+    border-radius: 50px;
+    border: none;
+    font-size: 22px;
+    width: 200px;
+    height: 50px;
+    margin: 0 20px;
+}
+
+/* Активна кнопка */
+.Button_active {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* Курсор при наведенні на активну кнопку */
+.Button_active:hover {
+    cursor: pointer;
+}
+
+/* Клавіша закриття */
+.Button_close {
+    cursor: pointer;
+    background: none;
+    font-size: 50px;
+    color: black;
+}
+
+
+/* 3. Tips App */
+
+
+/* Футер статистика */
+.Stats {
+    background: #383838;
+    color: white;
+    border-radius: 50px;
+    padding: 10px 50px;
+    margin-bottom: 25px;
+    border: none;
+    width: 30%;
+}
+
+/* Весь список */
+.todo_ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+    list-style-type: none;
+    min-height: 100px;
+    min-width: 200px;
+}
+
+/* Один пункт списку */
+.todo_li {
+    margin: 20px;
+    border: 1px solid #000000;
+    border-radius: 25px;
+}
+
+/* Red delete button */
+.Button_delete_todo {
+    color: red;
+    font-size: 20px;
+    scale: 200%;
+    background: none;
+    border: none;
+    margin: 20px;
+}
+
+/* Input todo */
+.Input_todo {
+    border: black 1px solid;
+    border-radius: 25px;
+}
+
+/* Менший gap для всіх елементів */
+.todo_list_gap {
+    gap: 50px;
+}
+
+/* Назва список справ */
+.List_ToDo_Name {
+    margin-top: 25px;
+}
+
+/* ToDo checkbox */
+.todo_checkbox {
+    margin: 20px;
+    scale: 150%;
+}
+
+/* ToDo div */
+.todo_li_div {
+    padding: 26px;
+    margin: 25px 0;
+}
+
+/* ToDo delete and checkbox div */
+.checkbox_and_delete {
+    display: flex;
+    justify-content: center;
+}
+
+/* Clear button */
+.Clear_button {
+    margin: 25px 0;
+}
+
+/* Вибір за чим сортувати */
+.select_sort {
+    padding: 10px;
+    border-radius: 25px;
+}
+
+/* Кнопка Next prev div margin */
+.buttons_next_prev, .numbers {
+    margin: 25px auto;
+    justify-content: center;
+}
+
+/* Кнопка Start */
+.button_start {
+    position: absolute;
+    font-size: 30px;
+    background: #2f2f2f;
+    border-radius: 50px;
+    color: white;
+    min-width: 300px;
+}
+
+/* Кнопки з відповідями */
+.answears {
+    margin: 25px 0;
+    height: 50px;
+    padding: 10px;
+}
+
+/* Кнопки з відповідями наведення */
+.answears:hover {
+    cursor: pointer;
+    scale: 105%;
+}
+
+/* Убрали наведення на числа */
+.number_not_hover:hover {
+    cursor: default;
+    scale: none;
+}
+
+/* Відступ звреху і знизу */
+.margin_25 {
+    margin: 25px 0;
+}
