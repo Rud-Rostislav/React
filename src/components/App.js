@@ -1,17 +1,81 @@
-import Header from "./App_1/Header";
-import Footer from "./App_1/Footer";
-import Menu from "./App_1/Menu";
-import Tips from "./App_2/Tips";
-import Delimiter from "./Delimiter";
-import Logo from "./App_3/Logo";
-import Form from "./App_3/Form";
-import ToDoList from "./App_3/ToDoList";
-import Stats from "./App_3/Stats";
+import Header from "./App_2_pizza/Header";
+import Header2 from "./App_1_posts/Header";
+import Footer from "./App_2_pizza/Footer";
+import Menu from "./App_2_pizza/Menu";
+import Logo from "./App_3_toDoList/Logo";
+import Form from "./App_3_toDoList/Form";
+import ToDoList from "./App_3_toDoList/ToDoList";
+import Stats from "./App_3_toDoList/Stats";
 import {useState} from "react";
-import Questions from "./App_4/Questions";
+import Questions from "./App_4_questions/Questions";
+import PostForm from "./App_1_posts/PostForm";
+import PostList from "./App_1_posts/PostList";
+import ClearButton from "./App_1_posts/ClearButton";
 
 
 export default function App() {
+    // App 1
+    const [darkModeToogle, setDarkModeToogle] = useState(true)
+    const darkMode = {background: '#1d1e1f'};
+    const lightMode = {background: '#ffffff'};
+
+    function toggleDarkMode() {
+        setDarkModeToogle(!darkModeToogle)
+    }
+
+
+    const [posts, setPosts] = useState([
+        {
+            id: 1,
+            title: 'Python',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        },
+        {
+            id: 2,
+            title: 'Java',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        },
+        {
+            id: 3,
+            title: 'HTML',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        },
+        {
+            id: 4,
+            title: 'CSS',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        },
+        {
+            id: 5,
+            title: 'JavaScript',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        },
+        {
+            id: 6,
+            title: 'React',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        }
+    ])
+
+    const createPost = (post) => {
+        setPosts([...posts, post])
+    }
+
+    function deletePost(id) {
+        const updatedPosts = posts.filter(post => post.id !== id)
+            .map((post, index) => ({
+                ...post,
+                id: index + 1,
+            }));
+
+        setPosts(updatedPosts);
+    }
+
+    function clearAll() {
+        setPosts([])
+    }
+
+
     // App 3
     const [items, setItems] = useState([]);
 
@@ -32,27 +96,37 @@ export default function App() {
     }
 
     return (
-        <div>
-            <Delimiter text="1. React App - Pizza Co"/>
-            <div className="Pizza_app">
+        <div
+            style={{backgroundColor: darkModeToogle ? darkMode.background : lightMode.background}}>
+            <div className="App_1">
+                <Header2 toggleDarkMode={toggleDarkMode} text={darkModeToogle ? '🌙' : '☀️'}/>
+                <PostForm posts={posts} createPost={createPost}/>
+                {posts.length > 0 ? (
+                    <>
+                        <PostList posts={posts} deletePost={deletePost}/>
+                        <ClearButton clearAll={clearAll}/>
+                    </>
+                ) : <p>Постів ще немає</p>
+                }
+            </div>
+
+            <div>
                 <Header/>
                 <Menu/>
                 <Footer/>
             </div>
 
-            <Delimiter text="2. React App - Tips list"/>
-            <Tips/>
 
-            <Delimiter text="3. React App - To Do  list"/>
-            <div className="Tips todo_list_gap">
+            <div className="div_wrapper todo_list_gap">
                 <Logo/>
                 <Form items={items} itemsLength={items.length} onAddItems={AddItems} onCLearItems={clearItems}/>
                 <ToDoList items={items} onDeleteItem={deleteItem} onToggleItem={ToogleItem}/>
                 <Stats items={items}/>
             </div>
 
-            <Delimiter text="4. React App - Questions"/>
-            <Questions/>
+            <div className="div_85_percent_height">
+                <Questions/>
+            </div>
         </div>
     );
 }
