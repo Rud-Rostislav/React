@@ -31,7 +31,8 @@ export default function ToDoList({items, onDeleteItem, onToggleItem}) {
                             <input type='checkbox' value={item.done} onChange={() => onToggleItem(item.id)}
                                    className='todo_checkbox'/>
                             <button className="Button_delete_todo"
-                                    onClick={() => onDeleteItem(item.id)}>X</button>
+                                    onClick={() => onDeleteItem(item.id)}>X
+                            </button>
                         </div>
                     </li>
                 ))}

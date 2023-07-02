@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddNewButton = ({addPost}) => {
     return (
-            <button className="add_new" onClick={addPost}>Add new</button>
+        <button className="add_new" onClick={addPost}>Add new</button>
     );
 };
 

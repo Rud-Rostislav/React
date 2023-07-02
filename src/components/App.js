@@ -12,7 +12,6 @@ import PostForm from "./App_1_posts/PostForm";
 import PostList from "./App_1_posts/PostList";
 import ClearButton from "./App_1_posts/ClearButton";
 
-
 export default function App() {
     // App 1
     const [darkModeToogle, setDarkModeToogle] = useState(true)

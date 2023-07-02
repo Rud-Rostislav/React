@@ -18,7 +18,8 @@ export default function Form({onAddItems, itemsLength, onCLearItems}) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input className='margin_top_and_bottom input_border' type="text" placeholder="Додати справу" value={list}
+                <input className='margin_top_and_bottom input_border' type="text" placeholder="Додати справу"
+                       value={list}
                        onChange={(e) => setList(e.target.value)}/>
                 <button className='margin_top_and_bottom'>Add</button>
             </form>
