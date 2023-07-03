@@ -44,6 +44,18 @@ button {
     width: 100%;
 }
 
+/* Sort by */
+select {
+    background: #2283dc;
+    border: none;
+    padding: 15px 32px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
 /* Remove backhround from darkmode button */
 .darkMode_button {
     background: none;

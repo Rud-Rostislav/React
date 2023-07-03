@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import AddNewButton from "./AddNewButton";
 
-const PostForm = ({createPost, posts}) => {
+export default function PostForm({createPost, posts, onSort, valueSort}) {
     const [post, setPost] = useState({title: '', text: ''});
 
     function addPost(e) {
@@ -24,8 +24,15 @@ const PostForm = ({createPost, posts}) => {
             </div>
 
             <AddNewButton addPost={addPost}/>
+
+            <div>
+                <select value={valueSort} onChange={event => onSort(event.target.value)}>
+                    <option defaultChecked value='input'>Sort by input</option>
+                    <option value='title'>Sort by title</option>
+                    <option value='text'>Sort by text</option>
+                </select>
+            </div>
+
         </form>
     );
 };
-
-export default PostForm;

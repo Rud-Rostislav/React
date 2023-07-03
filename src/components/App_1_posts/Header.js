@@ -1,14 +1,12 @@
 import React from 'react';
 
-const Header = ({toggleDarkMode, text}) => {
+export default function Header({toggleDarkMode, text}) {
     return (
         <header>
-            <p>Posts site</p>
+            <p>React app</p>
             <div>
                 <button onClick={toggleDarkMode} className='darkMode_button'>{text}</button>
             </div>
         </header>
     );
 };
-
-export default Header;

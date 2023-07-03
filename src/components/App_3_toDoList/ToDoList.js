@@ -2,7 +2,6 @@ import {useState} from "react";
 
 export default function ToDoList({items, onDeleteItem, onToggleItem}) {
     const [sortBy, setSortBy] = useState('input');
-
     let sortedItems;
 
     if (sortBy === 'input')

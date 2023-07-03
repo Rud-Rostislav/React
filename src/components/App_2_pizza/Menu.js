@@ -64,7 +64,6 @@ export default function Menu() {
         <main>
             <h2 className="menu-title">Our menu</h2>
             <ul className='Pizza_wrapper'>
-                {/*    <Pizza name={pizza.name} ingredients={pizza.ingredients} price={pizza.price} image={pizza.image}/>*/}
                 {PizzaData.map((pizza) => (
                     <li className="Pizza_item" key={pizza.id}>
                         <h3 className="Pizza_name">{pizza.name}</h3>

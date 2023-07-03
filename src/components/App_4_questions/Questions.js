@@ -129,9 +129,7 @@ export default function Questions() {
                 </button>
 
                 {/* Buttons with numbers */}
-                <div
-                    style={{visibility: showQuestions ? 'visible' : 'hidden'}}
-                >
+                <div style={{visibility: showQuestions ? 'visible' : 'hidden'}}>
 
                     <div className="numbers">
                         {questions.map((question, index) => (
@@ -144,8 +142,8 @@ export default function Questions() {
                     <p className="Tips_text">{step}. {questions[step - 1].question}</p>
 
                     {questions[step - 1].answer.map((answer, index) => (
-                        <div>
-                            <button key={index} className="Stats answears"
+                        <div key={index}>
+                            <button className="Stats answears"
                                     onClick={() => addPoints(index)}
                             >{answer}
                             </button>

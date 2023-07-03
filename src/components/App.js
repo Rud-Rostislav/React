@@ -14,15 +14,6 @@ import ClearButton from "./App_1_posts/ClearButton";
 
 export default function App() {
     // App 1
-    const [darkModeToogle, setDarkModeToogle] = useState(true)
-    const darkMode = {background: '#1d1e1f'};
-    const lightMode = {background: '#ffffff'};
-
-    function toggleDarkMode() {
-        setDarkModeToogle(!darkModeToogle)
-    }
-
-
     const [posts, setPosts] = useState([
         {
             id: 1,
@@ -37,7 +28,7 @@ export default function App() {
         {
             id: 3,
             title: 'HTML',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+            text: 'A Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
         },
         {
             id: 4,
@@ -52,7 +43,7 @@ export default function App() {
         {
             id: 6,
             title: 'React',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+            text: 'B Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
         }
     ])
 
@@ -74,6 +65,28 @@ export default function App() {
         setPosts([])
     }
 
+    // Dark mode
+    const [darkModeToogle, setDarkModeToogle] = useState(true)
+    const darkMode = {background: '#1d1e1f'};
+    const lightMode = {background: '#ffffff'};
+
+    function toggleDarkMode() {
+        setDarkModeToogle(!darkModeToogle)
+    }
+
+    // Sort
+    const [selectedSort, setSelectedSort] = useState('')
+
+    const sortPosts = (sort) => {
+        setSelectedSort(sort)
+        if (sort === 'title') {
+            setPosts([...posts].sort((a, b) => a.title.localeCompare(b.title)))
+        } else if (sort === 'text') {
+            setPosts([...posts].sort((a, b) => a.text.localeCompare(b.text)))
+        } else if (sort === 'input') {
+            setPosts([...posts].sort((a, b) => a.id - b.id))
+        }
+    }
 
     // App 3
     const [items, setItems] = useState([]);
@@ -94,12 +107,15 @@ export default function App() {
         setItems([]);
     }
 
+
     return (
-        <div
-            style={{backgroundColor: darkModeToogle ? darkMode.background : lightMode.background}}>
+        <div style={{backgroundColor: darkModeToogle ? darkMode.background : lightMode.background}}>
+
             <div className="App_1">
                 <Header2 toggleDarkMode={toggleDarkMode} text={darkModeToogle ? '🌙' : '☀️'}/>
-                <PostForm posts={posts} createPost={createPost}/>
+
+                <PostForm posts={posts} createPost={createPost} valueSort={selectedSort}
+                          onSort={sortPosts}/>
                 {posts.length > 0 ? (
                     <>
                         <PostList posts={posts} deletePost={deletePost}/>
@@ -115,7 +131,6 @@ export default function App() {
                 <Footer/>
             </div>
 
-
             <div className="div_wrapper todo_list_gap">
                 <Logo/>
                 <Form items={items} itemsLength={items.length} onAddItems={AddItems} onCLearItems={clearItems}/>
@@ -126,6 +141,7 @@ export default function App() {
             <div className="div_85_percent_height">
                 <Questions/>
             </div>
+
         </div>
     );
 }

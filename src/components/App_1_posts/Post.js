@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Post = ({post, deletePost}) => {
+export default function Post({post, deletePost}) {
     return (
         <div className="post">
             <strong>{post.id}. {post.title}</strong>
@@ -9,5 +9,3 @@ const Post = ({post, deletePost}) => {
         </div>
     );
 };
-
-export default Post;
