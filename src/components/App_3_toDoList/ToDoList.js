@@ -22,7 +22,7 @@ export default function ToDoList({items, onDeleteItem, onToggleItem}) {
             </div>
             <ul className="todo_ul">
                 {sortedItems.map((item) => (
-                    <li key={item.id} className="todo_li" style={item.done ? {backgroundColor: '#6dff6d'} : {}}>
+                    <li key={item.id} className="todo_li" style={item.done ? {backgroundColor: '#007700'} : {}}>
                         <div className='todo_li_div'>
                             {item.text}
                         </div>
