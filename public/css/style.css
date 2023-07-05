@@ -394,3 +394,14 @@ footer {
     height: 85vh;
     margin: 0 auto;
 }
+
+/* App 5 */
+
+.login_form {
+    margin: 0 auto;
+    width: 30%;
+}
+
+.margin_25 {
+    margin: 25px 0;
+}

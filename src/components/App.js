@@ -11,6 +11,7 @@ import Questions from "./App_4_questions/Questions";
 import PostForm from "./App_1_posts/PostForm";
 import PostList from "./App_1_posts/PostList";
 import ClearButton from "./App_1_posts/ClearButton";
+import LoginForm from "./App_5_form/LoginForm";
 
 export default function App() {
     // App 1
@@ -141,6 +142,8 @@ export default function App() {
             <div className="div_85_percent_height">
                 <Questions/>
             </div>
+
+            <LoginForm/>
 
         </div>
     );
