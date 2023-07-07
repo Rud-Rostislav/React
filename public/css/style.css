@@ -12,7 +12,27 @@
     /*border: rgba(255, 0, 0, 0.25) 1px solid;*/
 }
 
+/* Швидкий margin */
+
+/* Відступ зверху 25 */
+.margin_top_25 {
+    margin-top: 25px;
+}
+
+/* Відступ зверху 50 */
+.margin_top_50 {
+    margin-top: 50px;
+}
+
+/* Відступ зверху і знизу 25 */
+.margin_25 {
+    margin: 25px 0;
+}
+
+
 /* App 1 Posts */
+
+
 .App_1 {
     min-height: 100vh;
     display: flex;
@@ -250,9 +270,6 @@ footer {
     box-shadow: #2f2f2f 0 0 10px;
 }
 
-.margin_top_and_bottom {
-    margin: 25px 0;
-}
 
 /* Назва список справ */
 .List_ToDo_Name {
@@ -402,14 +419,9 @@ footer {
 }
 
 /* App 5 */
-
 .login_form {
     margin: 0 auto;
     width: 30%;
-}
-
-.margin_25 {
-    margin: 25px 0;
 }
 
 /* App 6 API */
@@ -418,4 +430,72 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 50px;
+}
+
+/* App 7 To Do List 2 */
+/* Список справ */
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin: 0 auto;
+}
+
+/* Список справ по одному */
+.todo-list-single {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 30px;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    background: #0054af;
+    min-width: 30%;
+    border-radius: 25px;
+}
+
+/* Список справ по одному hover */
+.todo-list-single:hover {
+    transition: 1s;
+    background: #0b80ff;
+    scale: 105%;
+}
+
+/* Список справ по одному без hover */
+.todo-list-single:not(:hover) {
+    transition: 1s;
+    scale: 100%;
+}
+
+/* Якщо виконана справа */
+.todo-list-single-completed {
+    background: green;
+}
+
+/* Кнопки видалення і виконання */
+.button_action {
+    background: none;
+    width: 30%;
+    font-size: 1.5rem;
+}
+
+/* Кнопки видалення і виконання hover */
+.button_delete:hover {
+    scale: 120%;
+    color: red;
+}
+
+/* Кнопки видалення і без hover */
+.button_done:hover {
+    scale: 120%;
+    color: #00ce00;
+}
+
+/* Clean buttons */
+.clear_button {
+    margin-top: 25px;
+    width: 15%;
 }

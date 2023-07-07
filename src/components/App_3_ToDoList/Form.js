@@ -18,12 +18,12 @@ export default function Form({onAddItems, itemsLength, onCLearItems}) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input className='margin_top_and_bottom input_border' type="text" placeholder="Додати справу"
+                <input className='margin_25 input_border' type="text" placeholder="Додати справу"
                        value={list}
                        onChange={(e) => setList(e.target.value)}/>
-                <button className='margin_top_and_bottom'>Add</button>
+                <button className='margin_25'>Add</button>
             </form>
-            <button onClick={onCLearItems} className='margin_top_and_bottom'>Clear All</button>
+            <button onClick={onCLearItems} className='margin_25'>Clear All</button>
         </div>
     );
 }
