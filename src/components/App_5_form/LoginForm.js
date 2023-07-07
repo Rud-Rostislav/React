@@ -34,24 +34,22 @@ export default function LoginForm() {
         }, 3000);
     }
 
-    return (
-        <div className="login_form">
-            <h1 className='margin_25'>Login form</h1>
-            <p style={{color: messageColor}}>{isLoggedIn}</p>
+    return (<div className="login_form">
+        <h1 className='margin_25'>Login form</h1>
+        <p style={{color: messageColor}}>{isLoggedIn}</p>
 
-            <form onSubmit={getSubmit}>
-                <input type="text" className='margin_25'
-                       placeholder='Username'
-                       value={data.username}
-                       onChange={event => setData({...data, username: event.target.value})}/>
-                <input type="password" className='margin_25'
-                       placeholder='Password'
-                       value={data.password}
-                       onChange={event => setData({...data, password: event.target.value})}/>
-                <button className='margin_25' type='submit'>Login</button>
-                <p>Admin: Login - admin, password - admin</p>
-                <p style={{padding: '25px'}}>User: Login - User, password - 123</p>
-            </form>
-        </div>
-    );
+        <form onSubmit={getSubmit}>
+            <input type="text" className='margin_25'
+                   placeholder='Username'
+                   value={data.username}
+                   onChange={event => setData({...data, username: event.target.value})}/>
+            <input type="password" className='margin_25'
+                   placeholder='Password'
+                   value={data.password}
+                   onChange={event => setData({...data, password: event.target.value})}/>
+            <button className='margin_25' type='submit'>Login</button>
+            <p>Admin: Username - admin, password - admin</p>
+            <p style={{padding: '25px'}}>User: Username - User, password - 123</p>
+        </form>
+    </div>);
 }

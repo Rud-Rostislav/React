@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import Header from "./App_2_pizza/Header";
 import Header2 from "./App_1_posts/Header";
 import Footer from "./App_2_pizza/Footer";
@@ -6,47 +7,28 @@ import Logo from "./App_3_toDoList/Logo";
 import Form from "./App_3_toDoList/Form";
 import ToDoList from "./App_3_toDoList/ToDoList";
 import Stats from "./App_3_toDoList/Stats";
-import {useState} from "react";
 import Questions from "./App_4_questions/Questions";
 import PostForm from "./App_1_posts/PostForm";
 import PostList from "./App_1_posts/PostList";
 import ClearButton from "./App_1_posts/ClearButton";
 import LoginForm from "./App_5_form/LoginForm";
+import Posts from "./App_6_API/Posts";
 
 export default function App() {
     // App 1
-    const [posts, setPosts] = useState([
-        {
-            id: 1,
-            title: 'Python',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-        },
-        {
-            id: 2,
-            title: 'Java',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-        },
-        {
-            id: 3,
-            title: 'HTML',
-            text: 'A Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-        },
-        {
-            id: 4,
-            title: 'CSS',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-        },
-        {
-            id: 5,
-            title: 'JavaScript',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-        },
-        {
-            id: 6,
-            title: 'React',
-            text: 'B Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-        }
-    ])
+    const [posts, setPosts] = useState([{
+        id: 1, title: 'Python', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    }, {
+        id: 2, title: 'Java', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    }, {
+        id: 3, title: 'HTML', text: 'A Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    }, {
+        id: 4, title: 'CSS', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    }, {
+        id: 5, title: 'JavaScript', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    }, {
+        id: 6, title: 'React', text: 'B Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    }])
 
     const createPost = (post) => {
         setPosts([...posts, post])
@@ -55,8 +37,7 @@ export default function App() {
     function deletePost(id) {
         const updatedPosts = posts.filter(post => post.id !== id)
             .map((post, index) => ({
-                ...post,
-                id: index + 1,
+                ...post, id: index + 1,
             }));
 
         setPosts(updatedPosts);
@@ -109,42 +90,45 @@ export default function App() {
     }
 
 
-    return (
-        <div style={{backgroundColor: darkModeToogle ? darkMode.background : lightMode.background}}>
+    return (<div style={{backgroundColor: darkModeToogle ? darkMode.background : lightMode.background}}>
 
-            <div className="App_1">
-                <Header2 toggleDarkMode={toggleDarkMode} text={darkModeToogle ? '🌙' : '☀️'}/>
+        <div className="App_1">
+            <Header2 toggleDarkMode={toggleDarkMode} text={darkModeToogle ? '🌙' : '☀️'}/>
 
-                <PostForm posts={posts} createPost={createPost} valueSort={selectedSort}
-                          onSort={sortPosts}/>
-                {posts.length > 0 ? (
-                    <>
-                        <PostList posts={posts} deletePost={deletePost}/>
-                        <ClearButton clearAll={clearAll}/>
-                    </>
-                ) : <p>Постів ще немає</p>
-                }
-            </div>
-
-            <div>
-                <Header/>
-                <Menu/>
-                <Footer/>
-            </div>
-
-            <div className="div_wrapper todo_list_gap">
-                <Logo/>
-                <Form items={items} itemsLength={items.length} onAddItems={AddItems} onCLearItems={clearItems}/>
-                <ToDoList items={items} onDeleteItem={deleteItem} onToggleItem={ToogleItem}/>
-                <Stats items={items}/>
-            </div>
-
-            <div className="div_85_percent_height">
-                <Questions/>
-            </div>
-
-            <LoginForm/>
-
+            <PostForm posts={posts} createPost={createPost} valueSort={selectedSort}
+                      onSort={sortPosts}/>
+            {posts.length > 0 ? (<>
+                <PostList posts={posts} deletePost={deletePost}/>
+                <ClearButton clearAll={clearAll}/>
+            </>) : <p>Постів ще немає</p>}
         </div>
-    );
+
+        <div>
+            <Header/>
+            <Menu/>
+            <Footer/>
+        </div>
+
+        <div className="div_wrapper todo_list_gap div_100_percent_height">
+            <Logo/>
+            <Form items={items} itemsLength={items.length} onAddItems={AddItems} onCLearItems={clearItems}/>
+            <ToDoList items={items} onDeleteItem={deleteItem} onToggleItem={ToogleItem}/>
+            <Stats items={items}/>
+        </div>
+
+
+        <div className="div_100_percent_height div_100_percent_height">
+            <h1>Questions</h1>
+            <Questions/>
+        </div>
+
+        <div className="div_100_percent_height">
+            <LoginForm/>
+        </div>
+
+        <div className="div_100_percent_height">
+            <h1 className='margin_25'>Get posts from API</h1>
+            <Posts />
+        </div>
+    </div>);
 }
