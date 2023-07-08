@@ -6,6 +6,7 @@ import App_4 from "./components/App_4_questions/App_4";
 import App_5 from "./components/App_5_form/App_5";
 import App_6 from "./components/App_6_API/App_6";
 import App_7 from "./components/App_7_ToDoList_2/App_7";
+import App_8 from "./components/App_8_Router/App_8";
 
 export default function App() {
     // DarkMode
@@ -18,6 +19,8 @@ export default function App() {
     }
 
     return (<div style={{backgroundColor: darkModeToogle ? darkMode.background : lightMode.background}}>
+        <App_8/>
+
         <App_1 darkModeToogle={darkModeToogle} toggleDarkMode={toggleDarkMode}/>
 
         <App_2/>
@@ -31,6 +34,7 @@ export default function App() {
         <App_5/>
 
         <App_6/>
+
 
     </div>);
 }

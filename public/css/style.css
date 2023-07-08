@@ -415,7 +415,6 @@ footer {
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin-top: 250px;
 }
 
 /* App 5 */
@@ -498,4 +497,66 @@ footer {
 .clear_button {
     margin-top: 25px;
     width: 15%;
+}
+
+/* App 8 */
+.app_8 {
+    min-height: 50vh;
+}
+nav {
+    padding: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0 25px;
+    border-radius: 10px;
+    background: #1155ad;
+}
+
+.all-courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.single-course {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 25px;
+    margin: 0 25px 50px 25px;
+    padding: 25px;
+    border-radius: 10px;
+    background: #1155ad;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 30%;
+    min-height: 250px;
+}
+
+.single-course:hover {
+    background: #ff4d00;
+    transition: 0.3s ease-in-out;
+    scale: 105%;
+}
+
+.single-course:not(:hover) {
+    transition: 0.3s ease-in-out;
+    scale: 100%;
+}
+
+.active {
+    background: #ff4d00;
+}
+
+.link-single {
+    background: none;
 }
