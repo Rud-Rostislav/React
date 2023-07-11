@@ -35,6 +35,5 @@ export default function App() {
 
         <App_6/>
 
-
     </div>);
 }

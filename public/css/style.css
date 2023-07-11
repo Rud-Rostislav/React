@@ -474,6 +474,19 @@ footer {
     background: green;
 }
 
+/* Список справ по одному hover */
+.todo-list-single-completed:hover {
+    transition: 1s;
+    background: #00ad00;
+    scale: 105%;
+}
+
+/* Список справ по одному без hover */
+.todo-list-single-todo-list-single-completed:not(:hover) {
+    transition: 1s;
+    scale: 100%;
+}
+
 /* Кнопки видалення і виконання */
 .button_action {
     background: none;
