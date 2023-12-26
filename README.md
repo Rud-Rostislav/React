@@ -1,1 +1,1 @@
-# Collection of several React apps + React Native
+# Collection of several React apps + React API + React Native 
